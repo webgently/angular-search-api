@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { VideoGame } from '../../../core/models/video-game.model';
 
 @Component({
   selector: 'app-video-game-list-item',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-game-list-item.component.scss']
 })
 export class VideoGameListItemComponent implements OnInit {
-
+  @Input() videoGame: VideoGame;
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }
