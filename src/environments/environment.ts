@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  api: 'https://public.connectnow.org.uk/applicant-test/',
 };
 
 /*
