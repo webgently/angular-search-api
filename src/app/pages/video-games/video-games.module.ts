@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { VideoGamesRoutingModule } from './video-games-routing.module';
 import { VideoGamesComponent } from './video-games.component';
+import { FilterComponent } from './filter/filter.component';
+import { VideoGameListItemComponent } from './video-game-list-item/video-game-list-item.component';
 
 
 @NgModule({
   declarations: [
-    VideoGamesComponent
+    VideoGamesComponent,
+    FilterComponent,
+    VideoGameListItemComponent
   ],
   imports: [
     CommonModule,
