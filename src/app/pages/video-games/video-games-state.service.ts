@@ -3,7 +3,8 @@ import { BehaviorSubject, filter, firstValueFrom } from 'rxjs';
 
 import { VideoGame } from '../../core/models/video-game.model';
 import { VideoGameService } from '../../core/services/video-game.service';
-import { OrderBy } from '../../core/models/filter.model';
+import { OrderBy, Sort } from '../../core/models/filter.model';
+
 
 @Injectable()
 export class VideoGamesStateService {
@@ -31,7 +32,7 @@ export class VideoGamesStateService {
       this.isLoading$.next(this.isLoading);
     }
   }
-  filter(name: string, score: number, orderBy: OrderBy){ 
+  filter(name: string, score: number, orderBy: OrderBy, sort: Sort){ 
     this.videoGames = this.allVideoGames
       .filter((item) => { 
         if (name) {
@@ -42,13 +43,14 @@ export class VideoGamesStateService {
       })
       .filter((item) => item.rating > (score || 0) * 10)
       .sort((a, b) => {
+        const direction = sort === Sort.Ascending ? 1 : -1;
         switch (orderBy) {
           case OrderBy.Score:
-            return b.rating - a.rating;
+            return (b.rating - a.rating) * direction;
           case OrderBy.Name:
             return a.name > b.name ? 1 : -1;
           case OrderBy.ReleaseDate:
-            return b.first_release_date - a.first_release_date;
+            return (b.first_release_date - a.first_release_date) * direction;
           default:
             return 1;
         }
