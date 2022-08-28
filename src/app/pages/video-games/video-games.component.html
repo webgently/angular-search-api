@@ -1,9 +1,9 @@
-<section class="container">
-  <div class="grid grid-cols-8 gap-x-40">
-    <div class="col-span-2">
+<section class="container px-15">
+  <div class="grid grid-cols-1 xl:grid-cols-8 gap-x-0 xl:gap-x-40">
+    <div class="col-span-1 xl:col-span-2 mb-25">
       <app-filter></app-filter>
     </div>
-    <div class="col-span-6">
+    <div class="col-span-1 xl:col-span-6">
       <app-spinner *ngIf="isLoading$ | async; else content"></app-spinner>
       <ng-template #content>
         <ng-container *ngIf="videoGames$ | async as videoGames">

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs';
 import { VideoGamesStateService } from '../video-games-state.service';
 import { OrderBy } from '../../../core/models/filter.model';
@@ -13,7 +13,7 @@ export class FilterComponent implements OnInit {
   OrderBy = OrderBy;
   form: FormGroup = this.fb.group({
     name: [''],
-    score: [0],
+    score: [0, [Validators.min(0), Validators.max(10)]],
     orderBy: [],
   });
   constructor(private fb:FormBuilder, private VideoGamesStateService: VideoGamesStateService) { }

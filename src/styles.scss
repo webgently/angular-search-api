@@ -29,5 +29,5 @@ p {
 }
 
 .btn-primary {
-  @apply font-medium bg-secondary px-25 py-[8px];
+  @apply text-white font-medium bg-secondary px-25 py-[5px] xl:py-[8px] w-full xl:w-auto text-12 xl:text-14 h-[28px] xl:h-[34px];
 }
